@@ -40,12 +40,7 @@ public class Cliente extends Pessoa {
 
 	}
 	
-	
-	
-//	public void listarAnimais() {
-//		 getAnimais();
-//	}
-	
+
 	@Override
 	public String toString() {
 		return "O animal " + nomepet + " tomou as seguintes vacinas:\n";

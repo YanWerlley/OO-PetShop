@@ -11,23 +11,6 @@ public class Admin extends Pessoa {
 		super(nome, cpf, end);
 	}
 
-//	public ArrayList<Animal> BuscarAnimal(String nomeBuscar) {
-//		
-//		ArrayList<Animal> buscador = new ArrayList<Animal>();
-//        animais.forEach((animal) -> {
-//            if(animal.getNome().equals(nomeBuscar)) {
-//            	System.out.println("Sim");
-//            }else {
-//            	System.out.println("Não");
-//            }
-//               
-//            	
-//        });
-//        return buscador;
-//		
-//		
-//		
-//		
-//	}
+
 
 }
