@@ -1,104 +1,83 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.List;
+
+/**  
+ * 
+ * <p>A classe Animal é usada para modelar a entidade animal</p>  
+ * @author Yan Werlley
+ * 
+ */
 
 public class Animal {
-	private int id;
-	private String nome;
-	private double peso;
-	private String cor;
-	private boolean possueDoenca;
-	private String tipoAnimal;
-	private ArrayList<Vacina> vacinas;
+    private String nome;
+    private double peso;
+    private String cor;
+    private boolean possueDoenca;
+    private String tipoAnimal;
+    private List<Vacina> vacinas;
 
-	
+    public Animal(String nome, double peso, String cor, boolean possueDoenca, String tipoAnimal) {
+        this.nome = nome;
+        this.peso = peso;
+        this.cor = cor;
+        this.possueDoenca = possueDoenca;
+        this.tipoAnimal = tipoAnimal;
+        this.vacinas = new ArrayList<>();
+    }
 
-	public int getId() {
-		return id;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public double getPeso() {
+        return peso;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public String getCor() {
+        return cor;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public boolean getPossueDoenca() {
+        return possueDoenca;
+    }
 
-	public double getPeso() {
-		return peso;
-	}
+    public String getTipoAnimals() {
+        return tipoAnimal;
+    }
 
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getCor() {
-		return cor;
-	}
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
 
-	public void setCor(String cor) {
-		this.cor = cor;
-	}
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
 
-	public boolean isPossueDoenca() {
-		return possueDoenca;
-	}
+    public void setPossueDoenca(boolean possueDoenca) {
+        this.possueDoenca = possueDoenca;
+    }
 
-	public void setPossueDoenca(boolean possueDoenca) {
-		this.possueDoenca = possueDoenca;
-	}
-	
+    public void setTipoAnimal(String tipoAnimal) {
+        this.tipoAnimal = tipoAnimal;
+    }
 
-	public String getTipoAnimal() {
-		return tipoAnimal;
-	}
+    
+    
+    public String toString() {
+        return "Nome: " + nome + ", Peso: " + peso + ", Cor: " + cor + ", Possue doenca: " + possueDoenca + ", Tipo de animal: " + tipoAnimal;
+    }
+    
+    public void addVacina(Vacina vacina) {
+        vacinas.add(vacina);
+    }
 
-	public void setTipoAnimal(String tipoAnimal) {
-		this.tipoAnimal = tipoAnimal;
-	}
-
-	public ArrayList<Vacina> getVacinas() {
+	public List<Vacina> getVacina() {
 		return vacinas;
 	}
-
-	public void setVacinas(ArrayList<Vacina> vacinas) {
-		this.vacinas = vacinas;
-	}
-	
-	public Animal(int id, String nome, double peso, String cor, boolean possueDoenca, String tipoAnimal, ArrayList<Vacina> vacinas) {
-		this.id = id;
-		this.nome = nome;
-		this.peso = peso;
-		this.cor = cor;
-		this.possueDoenca = possueDoenca;
-		this.tipoAnimal = tipoAnimal; 
-		this.vacinas = vacinas;
-		
-	}
-	public Animal(String nome) {
-		
-		this.nome = nome;
-		
-		
-	}
-	
-
-	
-	@Override
-	public String toString() {
-		
-		
-		return nome;
-	}
-
-	
-	
-	
-	
-	
 }

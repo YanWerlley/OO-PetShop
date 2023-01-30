@@ -1,43 +1,63 @@
 package modelos;
 
+/**  
+ * 
+ * <p>A classe Endereço serve para modelar os endereços </p> 
+ * @author Yan Werlley
+ */
+
 public class Endereco {
-	private String rua;
-	private String cidade;
-	private String estado;
-	private long cep;
-	
-	public Endereco(String rua,String cidade, String estado, long cep) {
-		this.rua = rua;
-		this.cidade = cidade;
-		this.estado = estado;
-		this.cep = cep;
-	}
-	
-	//Metodos acessores 
-	public String getRua() {
-		return rua;
-	}
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-	public String getCidade() {
-		return cidade;
-	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-	public String getEstado() {
-		return estado;
-	}
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	public long getCep() {
-		return cep;
-	}
-	public void setCep(long cep) {
-		this.cep = cep;
-	}
-	
-	
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
+    private String estado;
+
+    public Endereco(String rua, String numero, String bairro, String cidade, String estado) {
+        this.rua = rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }

@@ -1,61 +1,41 @@
 package modelos;
 
+import java.time.LocalDate;
+
+/**  
+ * 
+ * <p>A classe Vacina serve para modelar as vacinas</p> 
+ * @author Yan Werlley
+ * 
+ */
+
 public class Vacina {
-	
-	private int quantidadeVacinaTot;
-	private String nomeVacina;
-	private double dosagem;
-	private int quantUsada;
-	
-	
-	
-	@Override
-	public String toString() {
-		return "Quantidade = " + quantidadeVacinaTot + ", Nome = " + nomeVacina + ", Dosagem = " + dosagem +"\n";
-	}
-	
-	public Vacina() {
-		
-	}
-	
-	public Vacina(String nomeVacina, int quantidadeVacinaTot, double dosagem, int quantUsada) {
-		this.quantidadeVacinaTot =  quantidadeVacinaTot - quantUsada;
-		this.nomeVacina  = nomeVacina;
-		this.dosagem = dosagem;
-		this.quantUsada = quantUsada;
-	}
-	
-	
-    
-	
-	public int getQuantUsada() {
-		return quantUsada;
-	}
+    private String nome;
+    private String dataValidade;
 
-	public void setQuantUsada(int quantUsada) {
-		this.quantUsada = quantUsada;
-	}
+    public Vacina(String nome, String dataValidade) {
+        this.nome = nome;
+        this.dataValidade = dataValidade;
+    }
 
-	public int getQuantidadeVacinaTot() {
-		return quantidadeVacinaTot;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setQuantidadeVacinaTot(int quantidadeVacinaTot) {
-		this.quantidadeVacinaTot = quantidadeVacinaTot;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getNomeVacina() {
-		return nomeVacina;
-	}
-	public void setNomeVacina(String nomeVacina) {
-		this.nomeVacina = nomeVacina;
-	}
-	public double getDosagem() {
-		return dosagem;
-	}
-	public void setDosagem(double dosagem) {
-		this.dosagem = dosagem;
-	}
-	
-	
+    public String getDataAplicacao() {
+        return dataValidade;
+    }
+
+    public void setDataValidade(String dataValidade) {
+        this.dataValidade = dataValidade;
+    }
+
+    @Override
+    public String toString() {
+        return "Vacina: " + this.nome + " | Data de validade: " + this.dataValidade;
+    }
 }
