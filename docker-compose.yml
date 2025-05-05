@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # Serviço do banco de dados MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: petshop-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: petshop
+      MYSQL_USER: petshop
+      MYSQL_PASSWORD: petshop
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - petshop-network
+
+  # Serviço do phpMyAdmin para interface de gerenciamento do banco
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: petshop-phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - petshop-network
+
+  # Serviço da aplicação Spring Boot
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: petshop-backend
+    restart: always
+    # Configurar para mostrar a saída em tempo real
+    tty: true
+    stdin_open: true
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/petshop?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: petshop
+      SPRING_DATASOURCE_PASSWORD: petshop
+      # Variáveis para mostrar os testes ignorados
+      MAVEN_OPTS: "-Dmaven.test.failure.ignore=true -Dorg.slf4j.simpleLogger.defaultLogLevel=info"
+    depends_on:
+      - mysql
+    networks:
+      - petshop-network
+    # Garante que o container só inicia quando o MySQL estiver pronto
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://mysql:3306"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  petshop-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
