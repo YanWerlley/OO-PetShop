@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlog PetShop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Backlog do Projeto PetShop</h1>
+            <p>Histórias de Usuário e Requisitos</p>
+        </header>
+
+        <div class="nav">
+            <a href="/docs" class="btn">Voltar para Documentação</a>
+            <a href="/docs/uml" class="btn">Ver Diagrama UML</a>
+        </div>
+
+        <h2>Backlog do Produto</h2>
+        
+        <p>O backlogd</p>
+        
+        <h3>Épicos e Histórias de Usuário</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Épico</th>
+                    <th>ID Feature</th>
+                    <th>ID História</th>
+                    <th>História de Usuário</th>
+                    <th>Prioridade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Épico 1: Gerenciamento de Animais -->
+                <tr>
+                    <td rowspan="6">E01<br>Gerenciamento de Animais</td>
+                    <td rowspan="3">F01<br>Cadastro de Animais</td>
+                    <td>US01</td>
+                    <td>Eu, como recepcionista quero cadastrar animais no sistema para manter o registro dos pets atendidos.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US02</td>
+                    <td>Eu, como recepcionista quero registrar informações detalhadas do animal (peso, cor, raça) para melhor atendimento.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US03</td>
+                    <td>Eu, como veterinário quero visualizar o histórico de um animal para conhecer seu histórico médico.</td>
+                    <td>Média</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">F02<br>Edição de Animais</td>
+                    <td>US04</td>
+                    <td>Eu, como recepcionista quero atualizar os dados de um animal para manter as informações corretas.</td>
+                    <td>Média</td>
+                </tr>
+                <tr>
+                    <td>US05</td>
+                    <td>Eu, como recepcionista quero buscar animais por nome, raça ou tutor para facilitar o atendimento.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US06</td>
+                    <td>Eu, como recepcionista quero excluir o cadastro de um animal quando necessário.</td>
+                    <td>Baixa</td>
+                </tr>
+                
+                <!-- Épico 2: Gerenciamento de Clientes -->
+                <tr>
+                    <td rowspan="5">E02<br>Gerenciamento de Clientes</td>
+                    <td rowspan="3">F03<br>Cadastro de Clientes</td>
+                    <td>US07</td>
+                    <td>Eu, como recepcionista quero cadastrar clientes no sistema para registrar os tutores dos animais.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US08</td>
+                    <td>Eu, como cliente quero cadastrar meu endereço completo para facilitar o atendimento.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US09</td>
+                    <td>Eu, como cliente quero vincular múltiplos animais ao meu cadastro para gerenciar todos os meus pets.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">F04<br>Edição de Clientes</td>
+                    <td>US10</td>
+                    <td>Eu, como cliente quero atualizar meus dados de contato para manter as informações atualizadas.</td>
+                    <td>Média</td>
+                </tr>
+                <tr>
+                    <td>US11</td>
+                    <td>Eu, como recepcionista quero poder buscar clientes por nome, CPF ou telefone para facilitar o atendimento.</td>
+                    <td>Alta</td>
+                </tr>
+                
+                <!-- Épico 3: Gerenciamento de Vacinas -->
+                <tr>
+                    <td rowspan="5">E03<br>Gerenciamento de Vacinas</td>
+                    <td rowspan="3">F05<br>Registro de Vacinas</td>
+                    <td>US12</td>
+                    <td>Eu, como veterinário quero registrar vacinas aplicadas em um animal para manter seu histórico de imunização.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US13</td>
+                    <td>Eu, como veterinário quero registrar a data de aplicação e validade da vacina para controle do calendário vacinal.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US14</td>
+                    <td>Eu, como veterinário quero registrar o lote e fabricante da vacina para rastreabilidade.</td>
+                    <td>Média</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">F06<br>Consulta de Vacinas</td>
+                    <td>US15</td>
+                    <td>Eu, como veterinário quero visualizar o histórico de vacinação de um animal para acompanhar seu calendário vacinal.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US16</td>
+                    <td>Eu, como cliente quero receber alertas sobre vacinas próximas do vencimento para manter meu pet em dia.</td>
+                    <td>Média</td>
+                </tr>
+                
+                <!-- Épico 4: Agendamento -->
+                <tr>
+                    <td rowspan="4">E04<br>Agendamento</td>
+                    <td rowspan="2">F07<br>Marcação de Consultas</td>
+                    <td>US17</td>
+                    <td>Eu, como recepcionista quero agendar consultas para os animais para organizar o atendimento.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US18</td>
+                    <td>Eu, como cliente quero ver horários disponíveis para agendar consultas para meu pet.</td>
+                    <td>Média</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">F08<br>Gestão de Agenda</td>
+                    <td>US19</td>
+                    <td>Eu, como recepcionista quero visualizar a agenda do dia para organizar os atendimentos.</td>
+                    <td>Alta</td>
+                </tr>
+                <tr>
+                    <td>US20</td>
+                    <td>Eu, como recepcionista quero reagendar ou cancelar consultas quando necessário.</td>
+                    <td>Média</td>
+                </tr>
+                
+                <!-- Épico 5: Relatórios -->
+                <tr>
+                    <td rowspan="5">E05<br>Relatórios</td>
+                    <td rowspan="2">F09<br>Relatórios de Animais</td>
+                    <td>US21</td>
+                    <td>Eu, como gerente quero gerar relatórios de animais atendidos por período para análise de desempenho.</td>
+                    <td>Baixa</td>
+                </tr>
+                <tr>
+                    <td>US22</td>
+                    <td>Eu, como gerente quero visualizar estatísticas de raças e espécies mais atendidas para planejamento de estoque.</td>
+                    <td>Baixa</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">F10<br>Relatórios Financeiros</td>
+                    <td>US23</td>
+                    <td>Eu, como gerente quero gerar relatórios de faturamento por período para análise financeira.</td>
+                    <td>Média</td>
+                </tr>
+                <tr>
+                    <td>US24</td>
+                    <td>Eu, como gerente quero visualizar os serviços mais realizados para análise de desempenho.</td>
+                    <td>Baixa</td>
+                </tr>
+                <tr>
+                    <td>US25</td>
+                    <td>Eu, como gerente quero exportar relatórios em formato PDF ou Excel para apresentações.</td>
+                    <td>Baixa</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
