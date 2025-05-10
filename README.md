@@ -22,6 +22,28 @@ O projeto inclui testes unitários para os componentes principais, todos marcado
 ### Estrutura de Testes
 - `HelloWorldControllerTest`: Testes para o controlador básico
 
+## Qualidade de Código
+
+O projeto utiliza ferramentas de análise estática de código (linters) para garantir a qualidade e consistência do código:
+
+### Checkstyle
+Verifica se o código segue padrões de estilo consistentes.
+
+Para executar a verificação:
+```bash
+mvn checkstyle:check
+```
+
+### PMD
+Analisa o código para identificar possíveis problemas, como código duplicado, complexidade excessiva e boas práticas.
+
+Para executar a análise:
+```bash
+mvn pmd:check
+```
+
+As configurações personalizadas para estas ferramentas estão nos arquivos `checkstyle.xml` e `pmd-ruleset.xml` na pasta do backend.
+
 ## Como Executar
 
 1. Clone o repositório
