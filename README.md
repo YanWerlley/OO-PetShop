@@ -1,19 +1,44 @@
 # OO-PetShop
 
-Sistema de Pet Shop utilizando Spring Boot, seguindo arquitetura MVC/Clean Architecture como discutido em sala de aula com o professor.
+Sistema de Pet Shop utilizando Spring Boot e React, seguindo arquitetura MVC/Clean Architecture como discutido em sala de aula com o professor.
 
 ## Documentação
 
 - [Diagrama UML](./docs/uml/diagrama.md)
+- [Modelo Conceitual do Banco](./docs/banco/modelo_conceitual.md)
+- [Modelo Físico do Banco](./docs/banco/modelo_fisico.sql)
 - [Backlog e Histórias de Usuário](./docs/backlog.md)
+
+## Estrutura do Projeto
+
+```
+OO-PetShop/
+├── backend/           # Backend Spring Boot
+│   ├── src/           # Código fonte do backend
+│   └── pom.xml        # Dependências Maven
+├── frontend/          # Frontend React
+│   ├── public/        # Arquivos públicos
+│   ├── src/           # Código fonte do frontend
+│   └── package.json   # Dependências NPM
+└── docs/              # Documentação do projeto
+```
 
 ## Tecnologias Utilizadas
 
-- **Backend**: Spring Boot
-- **Banco de Dados**: MySQL
-- **Documentação**: Thymeleaf (HTML)
-- **Containerização**: Docker
-- **Testes**: JUnit 5
+### Backend
+- **Framework**: Spring Boot 3.2.0
+- **Banco de Dados**: H2 (dev), PostgreSQL (prod)
+- **Validação**: Jakarta Validation
+- **Documentação API**: OpenAPI/Swagger
+- **Mapeamento**: MapStruct
+- **Testes**: JUnit 5, Mockito
+
+### Frontend
+- **Framework**: React 18
+- **Roteamento**: React Router 6
+- **UI Components**: React Bootstrap
+- **HTTP Client**: Axios
+- **Testes**: Jest, React Testing Library
 
 ## Testes
 
@@ -46,17 +71,32 @@ As configurações personalizadas para estas ferramentas estão nos arquivos `ch
 
 ## Como Executar
 
+### Método 1: Script de Inicialização
+
 1. Clone o repositório
-2. Execute o comando:
-docker-compose up -d
+2. Execute o script `run-app.bat` na raiz do projeto
 
+### Método 2: Execução Manual
 
-3. Acesse:
+1. Clone o repositório
+
+2. Inicie o backend:
+   ```bash
+   cd backend
+   mvn spring-boot:run
+   ```
+
+3. Inicie o frontend:
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
+
+4. Acesse:
    - Backend API: http://localhost:8080
-   - Documentação do Projeto: http://localhost:8080/docs
-   - Backlog do Projeto: http://localhost:8080/docs/backlog
-   - Diagrama UML: http://localhost:8080/docs/uml
-   - PHPMyAdmin (Gerenciamento do Banco): http://localhost:8081
+   - Frontend: http://localhost:3000
+   - API Docs (Swagger): http://localhost:8080/swagger-ui/index.html
 
 ## Padrão de Commits
 
