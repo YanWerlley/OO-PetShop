@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  # Serviço da aplicação Spring Boot para testes
+  backend-test:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.test
+    container_name: petshop-backend-test
+    environment:
+      SPRING_PROFILES_ACTIVE: test
+      # Configuração para usar banco H2 em memória
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.H2Dialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      # Configuração para mostrar logs de teste
+      MAVEN_OPTS: "-Dorg.slf4j.simpleLogger.defaultLogLevel=info"
+    volumes:
+      # Montar o diretório target para acessar os relatórios de teste
+      - ./backend/target:/app/target

@@ -62,6 +62,26 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      
+  # Serviço para executar os testes do backend
+  backend-tests:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: petshop-backend-tests
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/petshop?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: petshop
+      SPRING_DATASOURCE_PASSWORD: petshop
+      # Configurações para testes
+      SPRING_PROFILES_ACTIVE: test
+      MAVEN_OPTS: "-Dmaven.test.failure.ignore=false -Dorg.slf4j.simpleLogger.defaultLogLevel=info"
+    depends_on:
+      - mysql
+    networks:
+      - petshop-network
+    # Comando para executar os testes
+    command: ./mvnw test
 
 networks:
   petshop-network:

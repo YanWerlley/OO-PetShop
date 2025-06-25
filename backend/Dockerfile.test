@@ -1,0 +1,29 @@
+FROM maven:3.8.5-openjdk-17
+WORKDIR /app
+
+# Copiar o pom.xml e baixar as dependências
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+# Copiar o código fonte
+COPY src ./src
+
+# Adicionar o H2 como dependência para testes se ainda não estiver no pom.xml
+RUN if ! grep -q "h2database" pom.xml; then \
+    sed -i '/<dependencies>/a \
+    <dependency>\n \
+        <groupId>com.h2database</groupId>\n \
+        <artifactId>h2</artifactId>\n \
+        <scope>runtime</scope>\n \
+    </dependency>' pom.xml; \
+    fi
+
+# Criar um script para executar os testes
+COPY entrypoint-test.sh /entrypoint-test.sh
+RUN chmod +x /entrypoint-test.sh && \
+    sed -i 's/\r$//' /entrypoint-test.sh
+
+# Configurar para que a saída do Maven seja clara
+ENV MAVEN_OPTS="-Dorg.slf4j.simpleLogger.defaultLogLevel=info -Dorg.slf4j.simpleLogger.showThreadName=false -Dorg.slf4j.simpleLogger.showLogName=false"
+
+CMD ["/entrypoint-test.sh"]
